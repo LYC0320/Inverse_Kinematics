@@ -1,0 +1,24 @@
+  Approx  Approximate
+  Coll    Collection
+  Diff    Difference
+  Dir     Direction
+  Eval    Evaluate
+  Fwd     Forward declaration
+  Homo    Homogeneous
+  Idx     Index
+  Ik      Inverse kinematics
+  MoCap   Motion capture
+  Pos     Position
+  Param   Parameter
+  Quat    Quaternion
+  Ref     Reference
+  RotMat  Rotation matrix
+  Skel    Skeleton
+  Sqr     Square/Squared
+  Src     Source
+  St      Spatial temporal
+  Sys     System
+  Tech    Technique
+  Xfm     Transform/transformation
+  Xlt     Translation
+  Xps     Transpose

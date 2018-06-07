@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{610C47C4-3BAC-436C-AE63-665C538DECB7}</ProjectGuid>
+    <RootNamespace>inverse_kinematics</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IntDir>$(SolutionDir)$(Configuration)\intermediate\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IntDir>$(SolutionDir)$(Configuration)\intermediate\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\;..\..\boost_1_59_0;..\..\Eigen;..\include;..\acclaim;..\console;..\geometry;..\gui;..\helper;..\kinematics;..\math;..\third_party;..\param;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib\debug\fltk_1.3.3;..\lib\debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glu32.lib;opengl32.lib;comctl32.lib;wsock32.lib;fltk.lib;fltkforms.lib;fltkgl.lib;fltkimages.lib;fltkjpeg.lib;fltkpng.lib;fltkzlib.lib;helper.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>MSVCRT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>..\;..\..\boost_1_59_0;..\..\Eigen;..\include;..\acclaim;..\console;..\geometry;..\gui;..\helper;..\kinematics;..\math;..\third_party;..\param;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_DEPRECATE;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\lib\release\fltk_1.3.3;..\lib\release</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glu32.lib;opengl32.lib;comctl32.lib;wsock32.lib;fltk.lib;fltkforms.lib;fltkgl.lib;fltkimages.lib;fltkjpeg.lib;fltkpng.lib;fltkzlib.lib;helper.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\acclaim\acclaim_motion.cc" />
+    <ClCompile Include="..\acclaim\acclaim_skeleton.cc" />
+    <ClCompile Include="..\acclaim\posture.cc" />
+    <ClCompile Include="..\console\console_color.cc" />
+    <ClCompile Include="..\console\console_log.cc" />
+    <ClCompile Include="..\geometry\geometry_arrow.cc" />
+    <ClCompile Include="..\geometry\geometry_ellipsoid.cc" />
+    <ClCompile Include="..\geometry\geometry_sphere.cc" />
+    <ClCompile Include="..\gui\gl_utils.cc" />
+    <ClCompile Include="..\gui\gui_camera.cc" />
+    <ClCompile Include="..\gui\gui_color.cc" />
+    <ClCompile Include="..\gui\gui_inverse_kinematics_display.cc" />
+    <ClCompile Include="..\gui\gui_inverse_kinematics_gl_window.cc" />
+    <ClCompile Include="..\gui\gui_inverse_kinematics_main_window.cc" />
+    <ClCompile Include="..\gui\gui_marker.cc" />
+    <ClCompile Include="..\gui\gui_mouse.cc" />
+    <ClCompile Include="..\gui\gui_polar_rotation.cc" />
+    <ClCompile Include="..\gui\gui_renderer.cc" />
+    <ClCompile Include="..\gui\gui_screenshot.cc" />
+    <ClCompile Include="..\gui\gui_signal.cc" />
+    <ClCompile Include="..\gui\gui_skeleton_color.cc" />
+    <ClCompile Include="..\gui\gui_utils.cc" />
+    <ClCompile Include="..\kinematics\kinematics_artic_idx.cc" />
+    <ClCompile Include="..\kinematics\kinematics_forward_solver.cc" />
+    <ClCompile Include="..\kinematics\kinematics_inverse_jacobian_ik_solver.cc" />
+    <ClCompile Include="..\kinematics\kinematics_pose.cc" />
+    <ClCompile Include="..\math\math_damped_least_squares_solver.cc" />
+    <ClCompile Include="..\math\math_pseudoinverse_solver.cc" />
+    <ClCompile Include="..\math\math_utils.cc" />
+    <ClCompile Include="..\param\param_config.cc" />
+    <ClCompile Include="..\param\param_xml_parser.cc" />
+    <ClCompile Include="..\third_party\lodepng.cc" />
+    <ClCompile Include="main.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\acclaim\acclaim_body_idx.h" />
+    <ClInclude Include="..\acclaim\acclaim_bone.h" />
+    <ClInclude Include="..\acclaim\acclaim_fwd.h" />
+    <ClInclude Include="..\acclaim\acclaim_motion.h" />
+    <ClInclude Include="..\acclaim\acclaim_skeleton.h" />
+    <ClInclude Include="..\acclaim\posture.h" />
+    <ClInclude Include="..\console\console_color.h" />
+    <ClInclude Include="..\console\console_log.h" />
+    <ClInclude Include="..\geometry\geometry_arrow.h" />
+    <ClInclude Include="..\geometry\geometry_def.h" />
+    <ClInclude Include="..\geometry\geometry_ellipsoid.h" />
+    <ClInclude Include="..\geometry\geometry_fwd.h" />
+    <ClInclude Include="..\geometry\geometry_sphere.h" />
+    <ClInclude Include="..\gui\gl_utils.h" />
+    <ClInclude Include="..\gui\gui_camera.h" />
+    <ClInclude Include="..\gui\gui_color.h" />
+    <ClInclude Include="..\gui\gui_def.h" />
+    <ClInclude Include="..\gui\gui_fl_fwd.h" />
+    <ClInclude Include="..\gui\gui_fl_widget_callback_data.h" />
+    <ClInclude Include="..\gui\gui_fwd.h" />
+    <ClInclude Include="..\gui\gui_inverse_kinematics_display.h" />
+    <ClInclude Include="..\gui\gui_inverse_kinematics_gl_window.h" />
+    <ClInclude Include="..\gui\gui_inverse_kinematics_main_window.h" />
+    <ClInclude Include="..\gui\gui_marker.h" />
+    <ClInclude Include="..\gui\gui_mouse.h" />
+    <ClInclude Include="..\gui\gui_polar_rotation.h" />
+    <ClInclude Include="..\gui\gui_renderer.h" />
+    <ClInclude Include="..\gui\gui_screenshot.h" />
+    <ClInclude Include="..\gui\gui_signal.h" />
+    <ClInclude Include="..\gui\gui_skeleton_color.h" />
+    <ClInclude Include="..\gui\gui_type.h" />
+    <ClInclude Include="..\gui\gui_utils.h" />
+    <ClInclude Include="..\helper\helper_def.h" />
+    <ClInclude Include="..\helper\helper_forward_kinematics.h" />
+    <ClInclude Include="..\helper\helper_fwd.h" />
+    <ClInclude Include="..\include\global_def.h" />
+    <ClInclude Include="..\kinematics\kinematics_artic_idx.h" />
+    <ClInclude Include="..\kinematics\kinematics_def.h" />
+    <ClInclude Include="..\kinematics\kinematics_forward_solver.h" />
+    <ClInclude Include="..\kinematics\kinematics_fwd.h" />
+    <ClInclude Include="..\kinematics\kinematics_inverse_jacobian_ik_solver.h" />
+    <ClInclude Include="..\kinematics\kinematics_pose.h" />
+    <ClInclude Include="..\kinematics\kinematics_type.h" />
+    <ClInclude Include="..\math\math_col_vector_3d.h" />
+    <ClInclude Include="..\math\math_col_vector_6d.h" />
+    <ClInclude Include="..\math\math_damped_least_squares_solver.h" />
+    <ClInclude Include="..\math\math_fwd.h" />
+    <ClInclude Include="..\math\math_homogeneous_transform.h" />
+    <ClInclude Include="..\math\math_linear_system_solver.h" />
+    <ClInclude Include="..\math\math_pseudoinverse_solver.h" />
+    <ClInclude Include="..\math\math_spatial_temporal_data.h" />
+    <ClInclude Include="..\math\math_type.h" />
+    <ClInclude Include="..\math\math_utils.h" />
+    <ClInclude Include="..\param\param_config.h" />
+    <ClInclude Include="..\param\param_fwd.h" />
+    <ClInclude Include="..\param\param_type.h" />
+    <ClInclude Include="..\param\param_xml_parser.h" />
+    <ClInclude Include="..\third_party\lodepng.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
